@@ -8,8 +8,6 @@ Create a `.env` file and set the following environment variables:
 
 - **`URLS_SELF_ISSUER`**: URL of the Hydra public API
 - **`SECRETS_SYSTEM`**: secret for encrypting the Hydra database; note that key rotation is not supported
-- **`POSTGRES_DB`**: Hydra database name, e.g. `hydra_db`
-- **`POSTGRES_USER`**: Hydra database user, e.g. `hydra_user`
 - **`POSTGRES_PASSWORD`**: Hydra database password
 - **`ODP_IDENTITY_URL`**: URL of the [ODP Identity](https://github.com/SAEONData/ODP-Identity) service
 

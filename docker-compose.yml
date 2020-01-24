@@ -20,7 +20,7 @@ services:
     environment:
       - URLS_SELF_ISSUER
       - SECRETS_SYSTEM
-      - "DSN=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@hydra-db:5432/${POSTGRES_DB}?sslmode=disable"
+      - "DSN=postgres://hydra_user:${POSTGRES_PASSWORD}@hydra-db:5432/hydra_db?sslmode=disable"
       - "URLS_LOGIN=${ODP_IDENTITY_URL}/hydra/login"
       - "URLS_CONSENT=${ODP_IDENTITY_URL}/hydra/consent"
       - "URLS_LOGOUT=${ODP_IDENTITY_URL}/hydra/logout"
@@ -37,7 +37,7 @@ services:
       - hydra-data:/var/lib/postgresql/data
     environment:
       - PGDATA=/var/lib/postgresql/data
-      - POSTGRES_DB
-      - POSTGRES_USER
+      - POSTGRES_DB=hydra_db
+      - POSTGRES_USER=hydra_user
       - POSTGRES_PASSWORD
     restart: always
