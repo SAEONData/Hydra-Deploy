@@ -2,7 +2,7 @@
 
 Docker-based deployment of an [ORY Hydra](https://www.ory.sh/docs/hydra/) server and database.
 
-## Setup
+## Installation
 
 Create a `.env` file and set the following environment variables:
 
@@ -18,13 +18,9 @@ Run the setup script, which initializes the Hydra database:
 
     sudo ./setup.sh
 
-## Run
-
 Start the Hydra containers in the background:
 
     sudo docker-compose up -d
-
-## Check
 
 Check that Hydra is running correctly (e.g. for localhost):
 
