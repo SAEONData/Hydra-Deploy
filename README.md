@@ -22,7 +22,6 @@ Start the Hydra containers in the background:
 
     sudo docker-compose up -d
 
-Check that Hydra is running correctly (e.g. for localhost):
+Check that Hydra is running:
 
-- https://localhost:9001/health/ready
-- https://localhost:9000/.well-known/openid-configuration
+    curl --insecure https://localhost:9001/health/ready
