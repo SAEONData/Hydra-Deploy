@@ -17,14 +17,14 @@ docker volume create hydra-data
 echo "Starting the Hydra DB container..."
 docker run -d --name hydra-db --network hydra-net --volume hydra-data:/var/lib/postgresql/data \
     -e PGDATA=/var/lib/postgresql/data \
-    -e POSTGRES_DB="${POSTGRES_DB}" \
-    -e POSTGRES_USER="${POSTGRES_USER}" \
+    -e POSTGRES_DB=hydra_db \
+    -e POSTGRES_USER=hydra_user \
     -e POSTGRES_PASSWORD="${POSTGRES_PASSWORD}" \
     postgres:9.6
 
 echo "Running SQL migrations..."
 docker run -it --rm --network hydra-net oryd/hydra:v1.2.1 migrate sql --yes \
-    "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@hydra-db:5432/${POSTGRES_DB}?sslmode=disable"
+    "postgres://hydra_user:${POSTGRES_PASSWORD}@hydra-db:5432/hydra_db?sslmode=disable"
 
 echo "Deleting the Hydra DB container..."
 docker rm -f hydra-db
