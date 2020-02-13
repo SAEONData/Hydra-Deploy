@@ -24,6 +24,10 @@ services:
       - "URLS_LOGIN=${ODP_IDENTITY_URL}/hydra/login"
       - "URLS_CONSENT=${ODP_IDENTITY_URL}/hydra/consent"
       - "URLS_LOGOUT=${ODP_IDENTITY_URL}/hydra/logout"
+
+      # TODO remove; the following makes access token lifetime 1 week (the default is 1 hour),
+      # as a workaround until such time as we've implemented token refresh on the client side
+      - TTL_ACCESS_TOKEN=168h
     depends_on:
       - hydra-db
     restart: always
