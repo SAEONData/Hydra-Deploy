@@ -23,7 +23,7 @@ docker run -d --name hydra-db --network hydra-net --volume hydra-data:/var/lib/p
     postgres:9.6
 
 echo "Running SQL migrations..."
-docker run -it --rm --network hydra-net oryd/hydra:v1.2.3 migrate sql --yes \
+docker run -it --rm --network hydra-net "${HYDRA_IMAGE}" migrate sql --yes \
     "postgres://hydra_user:${POSTGRES_PASSWORD}@hydra-db:5432/hydra_db?sslmode=disable"
 
 echo "Deleting the Hydra DB container..."

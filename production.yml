@@ -1,0 +1,20 @@
+version: "3.5"
+services:
+  hydra:
+    container_name: hydra
+    image: "${HYDRA_IMAGE}"
+    ports:
+      - "9000:4444"
+      - "9001:4445"
+    environment:
+      - URLS_SELF_ISSUER
+      - SECRETS_SYSTEM
+      - "DSN=postgres://hydra_user:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/hydra_db"
+      - "URLS_LOGIN=${ODP_IDENTITY_URL}/hydra/login"
+      - "URLS_CONSENT=${ODP_IDENTITY_URL}/hydra/consent"
+      - "URLS_LOGOUT=${ODP_IDENTITY_URL}/hydra/logout"
+
+      # TODO remove; the following makes access token lifetime 1 week (the default is 1 hour),
+      # as a workaround until such time as we've implemented token refresh on the client side
+      - TTL_ACCESS_TOKEN=168h
+    restart: always
