@@ -10,6 +10,6 @@ source .env
 
 echo "Running SQL migrations..."
 docker run -it --rm "${HYDRA_IMAGE}" migrate sql --yes \
-    "postgres://hydra_user:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/hydra_db"
+    "postgres://hydra_user:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/hydra_db?sslmode=disable"
 
 echo "Done."
