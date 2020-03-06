@@ -2,6 +2,7 @@ version: "3.5"
 
 networks:
   hydra-net:
+    name: hydra-net
     external: true
 
 volumes:
