@@ -1,8 +1,14 @@
 version: "3.5"
+
+networks:
+  hydra-net:
+
 services:
   hydra:
     container_name: hydra
     image: "${HYDRA_IMAGE}"
+    networks:
+      - hydra-net
     ports:
       - "9000:4444"
       - "9001:4445"
