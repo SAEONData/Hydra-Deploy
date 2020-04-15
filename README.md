@@ -1,5 +1,7 @@
 # Hydra-Deploy
 
+***Note: This work has been incorporated into, and superseded by, the [Open Data Platform](https://github.com/SAEONData/Open-Data-Platform) project.***
+
 Docker-based deployment of an [ORY Hydra](https://www.ory.sh/docs/hydra/) server.
 
 ## Configuration
